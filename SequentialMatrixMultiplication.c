@@ -37,6 +37,6 @@ int main()
         end = clock();
 
         cpu_time= ((double) (end - start)) / CLOCKS_PER_SEC;
-	printf("\nCPU time=%f sec",cpu_time);
+	printf("\nCPU time=%f sec change",cpu_time);
 	return 0;
 }
