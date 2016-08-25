@@ -29,7 +29,7 @@ int main(void)
         for(int i = 0; i < (Width*Width) ; i++){
                 printf("%f \t", P[i]);
         }
-	printf("Computation time of GPU: %f ms.\n", elapsed_time_ms);  // exe. time
+	printf("Computation time of GPU: %f ms.\n This is a change", elapsed_time_ms);  // exe. time
 
         return 0;
 }
