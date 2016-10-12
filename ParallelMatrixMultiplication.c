@@ -1,4 +1,7 @@
-
+/**
+*	Author : Rushikesh Gaidhani
+*	Topic  : Matrix Multiplication on GPGPU using CUDA
+*/
 
 #include<cuda.h>
 #include<stdio.h>
@@ -7,32 +10,7 @@
 
 cudaEvent_t start, stop;     			// using cuda events to measure time
 float elapsed_time_ms;       			// which is applicable for asynchronous code also
-	
 
-int main(void) 
-{
-
-        void MatrixMultiplication(float *, float *, float *, int);
-
-	const int Width= 100;
-        float M[Width*Width], N[Width*Width], P[Width*Width];
-        
-        for(int i = 0; i < (Width*Width) ; i++){
-                M[i] = 5;
-                N[i] = 5;
-                P[i] = 0;
-        }
-
-        MatrixMultiplication(M, N, P, Width);
-
-
-        for(int i = 0; i < (Width*Width) ; i++){
-                printf("%f \t", P[i]);
-        }
-	printf("Computation time of GPU: %f ms.\n This is a change", elapsed_time_ms);  // exe. time
-
-        return 0;
-}
 
 
 //Matrix multiplication kernel - thread specification
@@ -95,4 +73,29 @@ void MatrixMultiplication(float *M, float *N, float *P, int Width)
         cudaFree(Md);
         cudaFree(Nd);
         cudaFree(Pd);
+}
+
+int main(void) 
+{
+
+        void MatrixMultiplication(float *, float *, float *, int);
+
+	const int Width= 100;
+        float M[Width*Width], N[Width*Width], P[Width*Width];
+        
+        for(int i = 0; i < (Width*Width) ; i++){
+                M[i] = 5;
+                N[i] = 5;
+                P[i] = 0;
+        }
+
+        MatrixMultiplication(M, N, P, Width);
+
+
+        for(int i = 0; i < (Width*Width) ; i++){
+                printf("%f \t", P[i]);
+        }
+	printf("Computation time of GPU: %f ms.\n This is a change", elapsed_time_ms);  // exe. time
+
+        return 0;
 }
