@@ -13,12 +13,14 @@ int main()
         int  i,j,k;
         clock_t start, end;
         double cpu_time;
+        
+        
         for(i=0;i<count;i++){
 	       
 	        for(j=0;j<count;j++){
-	                b[i][j]=5;
-	                a[i][j]=5;
-	                c[i][j]=0;
+	                b[i][j]=rand()%50;
+	                a[i][j]=rand()%50;
+	                c[i][j]=rand()%50;
 	        }
         }
 	
